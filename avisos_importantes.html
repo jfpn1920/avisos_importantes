@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avisos importantes</title>
+    <link rel="stylesheet" href="avisos_importantes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="avisos_importantes.js" defer></script>
+</head>
+<body>
+    <!--------------------------------------->
+    <!--|estructuracion_avisos_importantes|-->
+    <!--------------------------------------->
+    <main class="app">
+        <!-- ENCABEZADO: título, contador de pendientes y botón de restablecer -->
+        <header class="encabezado">
+            <div>
+                <h1>Avisos Importantes</h1>
+                <p>Pendientes por leer: <strong id="pendientes">3</strong></p>
+            </div>
+            <button id="btnRestablecer" class="btn-restablecer" type="button">
+                Restablecer
+            </button>
+        </header>
+        <!-- PANEL: contiene los tres avisos -->
+        <section class="panel">
+            <!-- AVISO 1: el atributo data-id identifica cada aviso -->
+            <article class="aviso" data-id="aviso1" data-prioridad="urgente">
+                <div class="aviso-cabecera">
+                    <h2>Corte de agua programado</h2>
+                    <!-- Selector para cambiar la prioridad del aviso -->
+                    <select class="prioridad" aria-label="Prioridad del aviso">
+                        <option value="urgente" selected>Urgente</option>
+                        <option value="importante">Importante</option>
+                        <option value="informativo">Informativo</option>
+                    </select>
+                </div>
+                <label for="texto-aviso1">Mensaje</label>
+                <!-- El texto se puede editar y se guarda automáticamente -->
+                <textarea id="texto-aviso1" rows="3">Mañana no habrá agua entre las 8:00 a. m. y las 2:00 p. m. Guarda la que necesites.</textarea>
+                <button class="btn-leido" data-leido type="button">Marcar como leído</button>
+            </article>
+            <!-- AVISO 2 -->
+            <article class="aviso" data-id="aviso2" data-prioridad="importante">
+                <div class="aviso-cabecera">
+                    <h2>Reunión de equipo</h2>
+                    <select class="prioridad" aria-label="Prioridad del aviso">
+                        <option value="urgente">Urgente</option>
+                        <option value="importante" selected>Importante</option>
+                        <option value="informativo">Informativo</option>
+                    </select>
+                </div>
+                <label for="texto-aviso2">Mensaje</label>
+                <textarea id="texto-aviso2" rows="3">El viernes a las 10:00 a. m. habrá reunión en la sala principal. Asistencia obligatoria.</textarea>
+                <button class="btn-leido" data-leido type="button">Marcar como leído</button>
+            </article>
+            <!-- AVISO 3 -->
+            <article class="aviso" data-id="aviso3" data-prioridad="informativo">
+                <div class="aviso-cabecera">
+                    <h2>Nuevo horario de atención</h2>
+                    <select class="prioridad" aria-label="Prioridad del aviso">
+                        <option value="urgente">Urgente</option>
+                        <option value="importante">Importante</option>
+                        <option value="informativo" selected>Informativo</option>
+                    </select>
+                </div>
+                <label for="texto-aviso3">Mensaje</label>
+                <textarea id="texto-aviso3" rows="3">Desde la próxima semana atenderemos de lunes a viernes, de 7:00 a. m. a 5:00 p. m.</textarea>
+                <button class="btn-leido" data-leido type="button">Marcar como leído</button>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

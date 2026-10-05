@@ -1,0 +1,119 @@
+/* ===== VARIABLES DE COLOR (se usan en todo el archivo) ===== */
+:root {
+    --fondo: #f4f3ef;          /* fondo de la página */
+    --tarjeta: #ffffff;        /* fondo de cada aviso */
+    --texto: #26231f;          /* color principal del texto */
+    --texto-suave: #6b665e;    /* textos secundarios */
+    --borde: #dcd8cf;          /* color de los bordes */
+    --urgente: #c0392b;        /* rojo */
+    --importante: #d68910;     /* ámbar */
+    --informativo: #2471a3;    /* azul */
+}
+/* ===== REINICIO BÁSICO ===== */
+* {
+    box-sizing: border-box;    /* el padding no agranda los elementos */
+    margin: 0;
+    padding: 0;
+}
+/* ===== ESTILO GENERAL DE LA PÁGINA ===== */
+body {
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+    padding: 24px 16px;
+}
+/* Contenedor central con ancho máximo */
+.app {
+    max-width: 640px;
+    margin: 0 auto;
+}
+/* ===== ENCABEZADO ===== */
+.encabezado {
+    display: flex;
+    justify-content: space-between;  /* título a la izquierda, botón a la derecha */
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.encabezado h1 {
+    font-size: 2rem;
+}
+.encabezado p {
+    color: var(--texto-suave);
+}
+.btn-restablecer {
+    padding: 8px 14px;
+    background: none;
+    color: var(--texto-suave);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-restablecer:hover {
+    background: var(--tarjeta);
+}
+/* ===== PANEL ===== */
+.panel {
+    display: flex;
+    flex-direction: column;    /* los avisos se apilan uno debajo de otro */
+    gap: 16px;
+}
+/* ===== AVISO ===== */
+.aviso {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-left: 8px solid var(--borde);  /* franja de color según prioridad */
+    border-radius: 8px;
+    padding: 16px;
+    transition: opacity 0.2s;
+}
+/* El color de la franja cambia según el atributo data-prioridad */
+.aviso[data-prioridad="urgente"] { border-left-color: var(--urgente); }
+.aviso[data-prioridad="importante"] { border-left-color: var(--importante); }
+.aviso[data-prioridad="informativo"] { border-left-color: var(--informativo); }
+/* Aviso leído: se ve más apagado (clase agregada con JavaScript) */
+.aviso.leido {
+    opacity: 0.55;
+}
+.aviso.leido h2 {
+    text-decoration: line-through;  /* título tachado */
+}
+.aviso-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.aviso-cabecera h2 {
+    font-size: 1.1rem;
+}
+/* ===== CAMPOS DEL AVISO ===== */
+select,
+textarea {
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+/* ===== BOTÓN LEÍDO ===== */
+.btn-leido {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: var(--texto);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
